@@ -281,3 +281,133 @@ footer svg,.footer svg { width:11px; height:11px }
   .arena-intro { font-size:9px; padding:7px 10px; border-radius:9px; bottom:12px } .arena-intro svg { width:14px; height:14px } .arena-hud { top:9px; left:9px; right:9px } .arena-hud>* { font-size:8px } .arena-hud .timer { font-size:13px; min-width:66px } .modal-backdrop { padding:17px } .modal { padding:23px; border-radius:17px }
 }
 @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important; transition-duration:.01ms!important; scroll-behavior:auto!important } }
+
+/* Details matched to the game lobby and room controls. */
+.brand-mark>span:first-child { color:#e79965; transform:translateY(-2px) rotate(-10deg) }
+.brand-mark>span:last-child { color:#edb65f; transform:translateY(3px) rotate(8deg) }
+.user-chip { border:0; border-radius:20px; padding:0 3px 0 0; background:transparent }
+.user-chip:hover { background:#f2f5e9 }
+.user-chip>canvas { flex-shrink:0 }
+.new-dot,.eyebrow>i,.status-dot { display:inline-block; width:5px; height:5px; flex-shrink:0; border-radius:50%; background:#bccb9a }
+.new-dot { background:#e5ad82; width:4px; height:4px; margin-left:-3px }
+.status-dot { width:6px; height:6px; box-shadow:0 0 0 4px #f2f6e9; margin-right:4px }
+.rail>button { height:55px; display:flex; flex-direction:column; justify-content:center; gap:5px }
+.rail button>span { display:block; font-size:8px; line-height:1; letter-spacing:1px }
+.welcome h1>svg { display:inline-block; vertical-align:-2px; margin-left:11px; color:#d9af72; stroke-width:1.4 }
+.welcome-badge { padding:11px 16px; gap:12px; border-radius:11px; font-size:11px; font-weight:600 }
+.welcome-badge>svg:first-child { width:28px; height:28px; stroke-width:1.4; color:#b2bf8c }
+.welcome-badge>svg:last-child { width:14px; height:14px; color:#d4b38e; margin-left:12px }
+.welcome-badge small { display:block; margin-top:3px; font-size:8px; color:#abb493; letter-spacing:.3px; font-weight:400 }
+.map-icon { display:grid; place-items:center; width:29px; height:29px; border-radius:8px; background:#f1f5e7; color:#9caf7d }
+.map-icon svg { width:17px; height:17px }
+.arena-actions>span { display:inline-flex; align-items:center; gap:5px; margin-right:5px; color:#a8b093; font-size:9px; white-space:nowrap }
+.arena-actions>span svg { width:13px; height:13px; stroke-width:1.7 }
+.hud-pill { display:inline-flex; align-items:center; gap:6px }
+.hud-pill>i { width:5px; height:5px; border-radius:50%; background:#a2b67b }
+.timer>i { font-style:normal; margin:0 -4px; font-size:14px; opacity:.6; transform:translateY(-1px) }
+.arena-intro { min-width:330px; gap:12px; padding:13px 18px; justify-content:flex-start }
+.arena-intro>svg { width:27px; height:27px; stroke-width:1.5 }
+.arena-intro>div { min-width:0; flex:1 }
+.arena-intro>div>strong { display:block; color:#7c8961; font-size:13px; font-weight:700; letter-spacing:.3px }
+.arena-intro>div>span { display:block; color:#a2ab89; font-size:9px; margin-top:3px }
+.arena-intro>span:last-child { display:grid; place-items:center; width:26px; height:26px; border:1px solid #e7e9cf; border-radius:50%; color:#a8b288; font-size:15px; margin-left:9px }
+.panel>.section-title { margin-bottom:9px }
+.section-title h2>span,.tiny-label { font-size:8px; color:#b4bda1; font-weight:500; letter-spacing:1px; margin-left:5px }
+.section-title h2>span { position:relative; top:1px }
+.chosen-character { flex-direction:row; text-align:left; gap:13px; padding:6px 0 5px; min-height:108px }
+.character-orbit { width:96px; height:96px; flex:0 0 96px; margin-bottom:0 }
+.character-orbit>span { position:absolute; top:10px; left:5px; color:#b0c186; font-size:14px }
+.character-orbit canvas { width:116px!important; height:116px!important; max-width:none; flex-shrink:0 }
+.chosen-character>div:last-child { min-width:0 }
+.chosen-character strong { display:block; font-size:17px; letter-spacing:.4px; margin-bottom:4px }
+.chosen-character>div:last-child>span { display:block; color:#9ca887; font-size:10px; white-space:nowrap }
+.chosen-character small { display:block; font-size:8px; color:#b2b99f; margin-top:5px }
+.character-list { margin-top:10px }
+.character-list button { position:relative }
+.character-list button>i { position:absolute; display:grid; place-items:center; top:-4px; right:-3px; width:14px; height:14px; border-radius:50%; border:2px solid #fffefa; background:#a9bd82; color:#fff }
+.character-list button>i svg { width:8px; height:8px; stroke-width:3 }
+.nickname-label { position:relative }
+.nickname-label input { padding-right:40px }
+.nickname-label>span { position:absolute; bottom:9px; right:9px; color:#bdc3b0; font-size:8px; line-height:18px; pointer-events:none }
+.panel-subtitle { margin:1px 0 14px!important; line-height:1.75!important }
+.button.primary.big>svg:last-child { margin-left:auto; width:15px; height:15px }
+.button.primary.big>svg:first-child { margin-right:auto }
+.play-note { display:flex; align-items:center; justify-content:center; gap:4px; margin:11px 0 0; color:#b6bda5; font-size:8px; white-space:nowrap }
+.play-note svg { width:10px; height:10px; stroke-width:1.7 }
+.leave-practice { display:flex; justify-content:center; margin:13px auto 0; font-size:10px }
+.tip-panel { display:flex; align-items:flex-start; gap:12px; border:1px solid #eee6c9; border-radius:13px; padding:15px 17px; background:#faf6e7 }
+.tip-panel>svg { flex:0 0 21px; width:21px; height:21px; color:#cbb57a; stroke-width:1.5; margin-top:2px }
+.tip-panel strong { display:block; color:#ad9c6a; font-size:11px; font-weight:600 }
+.tip-panel p { margin:5px 0 0; font-size:10px; line-height:1.9; color:#b5a97f }
+.friends-art { display:flex; align-items:center; justify-content:center; gap:2px; margin:6px -6px 0; padding-top:3px }
+.friends-art>canvas { width:57px!important; height:57px!important; flex-shrink:0 }
+.friends-art>span { font-size:13px; color:#c3cbb2; font-weight:300 }
+.friends-art>svg { width:24px; height:24px; color:#e6a58f; stroke-width:1.7; fill:#f8e6dc; margin-left:5px }
+.chat-panel>.friends-art+p { font-size:9px; text-align:center; color:#adb69b; margin:5px 0 9px }
+.chat-panel>.text-button { display:flex; justify-content:center; margin:0 auto; font-size:10px }
+.chat-messages p { margin:3px 0; font-size:10px; line-height:1.8 }
+.chat-messages .chat-system { color:#b3bda2; font-size:9px }
+.map-info { display:block; padding:10px 7px 7px }
+.map-info>strong { display:block; margin:0; font-size:11px; color:#7b8967 }
+.map-info>span { display:block; margin-top:3px; color:#acb59a; font-size:8px; letter-spacing:.1px; white-space:nowrap }
+.public-room>svg:first-child { width:24px; height:24px; color:#a8ba8b; flex-shrink:0 }
+.public-room>div { min-width:0; flex:1; text-align:left }
+.public-room>div>span { display:block; font-size:9px; margin-top:3px; color:#aeb99a }
+.public-room>span { font-size:10px; color:#a8b68c }
+.public-room>svg:last-child { width:14px; height:14px; color:#aabb8f; flex-shrink:0 }
+.empty-rooms { display:flex; align-items:center; text-align:left; gap:15px; padding:19px 22px }
+.empty-icon { display:grid; place-items:center; width:39px; height:39px; flex:0 0 39px; border-radius:50%; background:#eaf0dc; color:#b3c291 }
+.empty-icon>svg { display:block; margin:0; width:20px; height:20px; stroke-width:1.5 }
+.empty-rooms>div { flex:1; min-width:0 }
+.empty-rooms strong { font-size:11px; font-weight:500; color:#9aa985 }
+.empty-rooms p { margin:4px 0 0; font-size:9px; color:#b0ba9e }
+.empty-rooms>.text-button { flex-shrink:0; font-size:10px }
+.roster-slot { padding:3px 7px; gap:7px; min-height:42px }
+.roster-slot:not(.filled) { background:transparent; border-style:dashed; color:#b5c0a2; justify-content:center }
+.roster-slot:not(.filled)>span { font-size:9px }
+.roster-slot:not(.filled)>svg { width:13px; height:13px }
+.roster-slot>strong { flex:1; font-size:10px }
+.roster-slot>span { flex-shrink:0; font-size:8px; color:#a4b08f }
+.room-code>b { font-family:Consolas,monospace; color:#7f945b; font-size:20px; letter-spacing:3px; margin-left:auto }
+.start-panel>.button.primary { width:100%; font-size:11px }
+.equipment>span { position:relative; display:grid; grid-template-columns:auto auto; gap:4px 5px; font-size:8px; text-align:center; color:#acb79a; justify-content:center }
+.equipment>span>b { font-size:16px; color:#8b9e70; line-height:19px }
+.equipment>span>svg { width:15px; height:15px; align-self:center }
+.equipment>span>i { color:#aac3d2; font-style:normal; font-size:19px; line-height:18px }
+.code-text { display:inline-block; font-family:Consolas,monospace; font-size:19px; letter-spacing:3px; margin-left:6px; color:#9eaf7c }
+.finish>div>.text-button { display:flex; margin:15px auto 0; justify-content:center }
+.modal>.button.primary,.modal form>.button.primary { width:100%; margin-top:15px }
+.modal input.room-code-input { height:49px; text-align:center; font-family:Consolas,"Microsoft YaHei",sans-serif; font-size:19px; letter-spacing:6px; background:#f5f8eb; border:1px solid #dfe8ce }
+.modal input.room-code-input::placeholder { font-size:13px; letter-spacing:3px }
+.setting-row>div>span { display:block; color:#abb49b; font-size:10px; margin-top:4px }
+.setting-note { display:flex; align-items:flex-start; gap:8px }
+.setting-note>svg { width:17px; height:17px; flex-shrink:0; margin-top:2px; color:#b5ad83 }
+.toast>button { border:0; display:grid; place-items:center; width:21px; height:21px; border-radius:50%; padding:0; margin-left:10px; background:#f2f5e6; color:#abb898; flex-shrink:0 }
+footer>button { display:flex; align-items:center; gap:5px; border:0; background:transparent; color:#a9b599; font-size:9px; padding:0 }
+.spin { animation:spin .75s linear infinite }
+.arena-card:fullscreen { width:100vw; height:100dvh; border:0; border-radius:0; background:#f8faf0; display:flex; flex-direction:column; align-items:center; overflow:auto }
+.arena-card:fullscreen>.arena-heading,.arena-card:fullscreen>.game-toolbar { width:min(100%,calc((100dvh - 111px) * 15 / 11)); flex-shrink:0 }
+.arena-card:fullscreen>.canvas-wrap { flex:0 0 auto; width:min(100vw,calc((100dvh - 111px) * 15 / 11)); height:auto; aspect-ratio:15/11 }
+.arena-card:fullscreen>.arena-heading { min-height:59px }
+.arena-card:fullscreen>.game-toolbar { min-height:52px }
+@media (max-width:1180px) {
+  .chosen-character { gap:8px } .character-orbit { width:83px; height:83px; flex-basis:83px } .character-orbit canvas { width:106px!important; height:106px!important } .chosen-character strong { font-size:15px } .chosen-character>div:last-child>span { font-size:9px } .chosen-character small { font-size:7px } .play-note { font-size:7px } .map-info>span { font-size:7px }
+}
+@media (max-width:960px) {
+  .character-orbit { width:72px; height:72px; flex-basis:72px } .character-orbit canvas { width:93px!important; height:93px!important } .chosen-character { gap:7px; min-height:87px } .chosen-character strong { font-size:14px } .chosen-character>div:last-child>span { font-size:8px } .chosen-character small { font-size:6px } .friends-art>canvas { width:47px!important; height:47px!important } .friends-art>svg { width:20px; height:20px } .tip-panel { padding:13px; gap:9px } .tip-panel strong { font-size:10px } .tip-panel p { font-size:9px } .map-info { padding:9px 5px 6px } .map-info>span { letter-spacing:0; font-size:6.5px }
+}
+@media (max-width:760px) {
+  .welcome h1 { line-height:1.4; white-space:nowrap } .welcome h1>svg { width:22px; height:22px; margin-left:7px; vertical-align:-2px } .rail { display:none } .arena-actions>span { font-size:9px; gap:4px; margin-right:1px } .arena-actions>span svg { width:12px; height:12px } .arena-heading { padding:0 13px } .map-label { gap:7px } .map-icon { width:26px; height:26px }
+  .arena-intro { min-width:0; width:max-content; max-width:calc(100% - 30px); padding:10px 13px; gap:9px } .arena-intro>svg { width:22px; height:22px } .arena-intro>div>strong { font-size:12px; letter-spacing:0 } .arena-intro>div>span { font-size:8px; margin-top:2px } .arena-intro>span:last-child { width:22px; height:22px; font-size:13px; margin-left:5px }
+  .section-title h2 { font-size:11px } .section-title h2>span,.tiny-label { font-size:6px; letter-spacing:.5px; margin-left:2px } .section-title>span { font-size:8px } .chosen-character { flex-direction:column; text-align:center; gap:4px; padding:8px 0 7px } .chosen-character .character-orbit { width:83px; height:83px; flex-basis:83px } .chosen-character .character-orbit canvas { width:106px!important; height:106px!important } .chosen-character strong { font-size:15px; margin:1px 0 3px } .chosen-character>div:last-child>span { font-size:9px } .chosen-character small { font-size:7px; margin-top:3px } .character-list { margin-top:9px } .character-list canvas { max-width:40px; max-height:40px } .character-list button { padding:3px 1px 4px } .nickname-label>span { bottom:7px }
+  .play-note { font-size:7px; letter-spacing:-.2px; gap:2px; white-space:normal; text-align:center; line-height:1.7 } .play-note svg { width:9px; height:9px; flex-shrink:0 } .tip-panel { padding:13px; gap:8px; border-radius:13px } .tip-panel>svg { width:16px; height:16px; flex-basis:16px } .tip-panel strong { font-size:10px } .tip-panel p { font-size:9px } .friends-art { gap:5px } .friends-art>canvas { width:57px!important; height:57px!important } .friends-art>svg { width:24px; height:24px } .chat-panel>.friends-art+p { font-size:10px }
+  .map-info { padding:9px 5px 6px } .map-info>strong { font-size:10px } .map-info>span { font-size:7px; white-space:normal; line-height:1.65 } .section-title h2>span { margin-left:4px } .empty-rooms { gap:10px; padding:15px } .empty-icon { width:31px; height:31px; flex-basis:31px } .empty-rooms strong { font-size:10px } .empty-rooms p { font-size:8px; line-height:1.8 } .empty-rooms>.text-button { font-size:9px } .rooms-section { margin-top:23px }
+  .touch-controls>button:not(.touch-bomb) { width:43px; height:43px; border-radius:50%; margin-left:auto; font-size:10px } .touch-controls>.touch-bomb { width:62px; height:62px; border-radius:50%; border:2px solid #e9ceb1; background:#fcf0df; color:#c99567; font-size:11px; margin-left:1px } .touch-controls>.touch-bomb:active { background:#f5dfc4 }
+  .arena-card:fullscreen>.canvas-wrap { width:min(100vw,calc((100dvh - 220px) * 15 / 11)) } .arena-card:fullscreen>.arena-heading,.arena-card:fullscreen>.game-toolbar,.arena-card:fullscreen>.touch-controls { width:100%; max-width:900px } .arena-card:fullscreen>.touch-controls { flex:1; min-height:96px; padding:10px 25px; justify-content:space-between } .arena-card:fullscreen>.game-toolbar { min-height:43px } .arena-card:fullscreen>.arena-heading { min-height:49px }
+}
+@media (max-width:440px) {
+  .welcome h1 { font-size:23px } .welcome h1>svg { width:20px; height:20px; margin-left:6px } .arena-actions>span { font-size:8px } .arena-actions>span svg { width:11px; height:11px } .arena-actions .icon-button { width:23px } .map-label { font-size:11px; gap:6px } .mode-tag { font-size:7px; padding:2px 5px; margin-left:0 } .map-icon { width:23px; height:23px } .map-icon svg { width:15px; height:15px }
+  .arena-intro { bottom:12px; gap:7px; padding:8px 11px; max-width:calc(100% - 22px) } .arena-intro>div>strong { font-size:11px } .arena-intro>div>span { font-size:7px } .arena-intro>svg { width:21px; height:21px } .arena-intro>span:last-child { width:20px; height:20px; margin-left:2px }
+  .character-list canvas { max-width:31px; max-height:31px } .panel>.section-title { margin-bottom:7px } .panel .section-title h2 { font-size:10px } .panel .tiny-label { font-size:5px; letter-spacing:0 } .tip-panel { padding:11px; gap:6px } .tip-panel>svg { width:14px; height:14px; flex-basis:14px } .tip-panel strong { font-size:9px } .tip-panel p { font-size:8px; line-height:1.9 } .start-panel .panel-subtitle { font-size:8px; line-height:1.8!important; margin-bottom:11px!important }
+  .section-title h2 { font-size:10px } .section-title h2>span { font-size:6px } .map-info>strong { font-size:10px } .map-info>span { font-size:6.5px; letter-spacing:-.1px } .empty-rooms { flex-wrap:wrap; gap:8px; padding:13px } .empty-rooms>div { flex-basis:calc(100% - 44px) } .empty-rooms>.text-button { margin-left:39px; font-size:9px } .empty-rooms strong { font-size:10px } .empty-rooms p { font-size:8px } .roster-slot { gap:4px; padding-inline:4px } .roster-slot canvas { width:27px!important; height:27px!important } .roster-slot>strong { font-size:8px } .roster-slot>span { font-size:6px }
+}

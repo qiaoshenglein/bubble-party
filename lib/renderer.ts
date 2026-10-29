@@ -232,6 +232,29 @@ export function renderGame(ctx: CanvasRenderingContext2D, state: GameState, time
   for (const blast of state.blasts) drawWater(ctx, (blast.x + .5) * T, (blast.y + .5) * T, blast.remaining, time);
   for (const item of state.items) drawItem(ctx, item.type, (item.x + .5) * T, (item.y + .5) * T, time);
   const objects: { depth: number; draw: () => void }[] = [];
+  // Lobby props are render-only: no bombs or pickups enter the live simulation.
+  if (opts.preview) {
+    const occupied = new Set(state.players.map(player => `${player.x},${player.y}`));
+    for (const object of [...state.items, ...state.bombs]) occupied.add(`${object.x},${object.y}`);
+    const findSpot = (wantedX: number, wantedY: number) => {
+      let best: { x: number; y: number; distance: number } | undefined;
+      for (let y = 1; y < 10; y++) for (let x = 1; x < 14; x++) {
+        if (state.tiles[y][x] || occupied.has(`${x},${y}`)) continue;
+        const distance = Math.abs(x - wantedX) + Math.abs(y - wantedY);
+        if (!best || distance < best.distance) best = { x, y, distance };
+      }
+      if (best) occupied.add(`${best.x},${best.y}`);
+      return best;
+    };
+    for (const [wantedX, wantedY] of [[4, 3], [10, 2], [11, 7]]) {
+      const spot = findSpot(wantedX, wantedY); if (!spot) continue;
+      objects.push({ depth: (spot.y + .5) * T + 17, draw: () => drawBomb(ctx, (spot.x + .5) * T, (spot.y + .5) * T + 4, 1800, time) });
+    }
+    for (const [wantedX, wantedY, type] of [[5, 7, 'capacity'], [9, 4, 'range'], [7, 1, 'speed']] as const) {
+      const spot = findSpot(wantedX, wantedY); if (!spot) continue;
+      drawItem(ctx, type, (spot.x + .5) * T, (spot.y + .5) * T, time);
+    }
+  }
   for (let y = 0; y < 11; y++) for (let x = 0; x < 15; x++) {
     const tile = state.tiles[y]?.[x];
     if (tile === 1) objects.push({ depth: y * T + 47, draw: () => drawBush(ctx, x * T, y * T + 1, map, x * 7 + y * 11) });
@@ -258,7 +281,7 @@ export function renderGame(ctx: CanvasRenderingContext2D, state: GameState, time
         ctx.save(); ctx.globalAlpha = .45 + Math.sin(time * .003) * .08; ellipse(ctx, x, y + 20, 24, 8, '#ffffffcc', '#4da8a0', 1.3); ctx.restore();
       } else ellipse(ctx, x + 1, y + 21, 21, 6.5, 'rgba(43,99,65,.19)');
       if (player.shield > 0) { ctx.save(); ctx.globalAlpha = .6; ellipse(ctx, x, y + 18, 25, 10, '#d3ffef40', '#e1ffed', 2); ctx.restore(); }
-      ctx.save(); if (player.invulnerable > 0 && Math.floor(time / 110) % 2 === 0) ctx.globalAlpha = .58;
+      ctx.save(); if (!opts.preview && player.invulnerable > 0 && Math.floor(time / 110) % 2 === 0) ctx.globalAlpha = .58;
       drawAvatar(ctx, player.character, x, y - 3, 54, time + player.x * 73); ctx.restore();
       if (player.trapped > 0) drawTrap(ctx, x, y - 6, time);
       if (!opts.preview) {

@@ -116,11 +116,49 @@ test('chat bounds, expiration, and malformed payloads are enforced', async () =>
   assert.equal(message.room.messages[0].text, '你好');
   await assert.rejects(actOnRoom(db, host.code, { action: 'chat', token: host.token, text: '再见' }), error => error.status === 429);
   await assert.rejects(parseRoomBody(new Request('https://local/api/rooms', { method: 'POST', body: '[]' })), error => error.status === 400);
+  await assert.rejects(parseRoomBody(new Request('https://local/api/rooms', { method: 'POST', body: JSON.stringify({ text: '爱'.repeat(2000) }) })), error => error.status === 413);
+  await assert.rejects(parseRoomBody(new Request('https://local/api/rooms', { method: 'POST', body: new Uint8Array([0xff, 0xfe]) })), error => error.status === 400);
   await assert.rejects(getRoom(db, '../oops'), error => error.status === 400);
   advance(31 * 60 * 1000);
   await assert.rejects(getRoom(db, host.code), error => error.status === 404);
   assert.equal((await listRooms(db)).rooms.length, 0);
   await createRoom(db, { name: 'new' });
   assert.equal(db.sqlite.prepare('SELECT count(*) AS total FROM rooms').get().total, 1);
+  db.sqlite.close();
+}));
+
+test('inactive host is eliminated and authority passes to an active player', async () => withClock(async advance => {
+  const db = database();
+  const host = await createRoom(db, { name: 'host' });
+  const guest = await actOnRoom(db, host.code, { action: 'join', name: 'guest' });
+  await actOnRoom(db, host.code, { action: 'ready', token: guest.token, ready: true });
+  await actOnRoom(db, host.code, { action: 'start', token: host.token });
+  assert.equal((await listRooms(db)).rooms.length, 0);
+  advance(30_000);
+  await getRoom(db, host.code, guest.token);
+  advance(31_000);
+  const remaining = await getRoom(db, host.code, guest.token);
+  assert.equal(remaining.room.hostId, guest.playerId);
+  assert.equal(remaining.room.players.length, 1);
+  assert.equal(remaining.room.status, 'finished');
+  assert.equal(remaining.room.game.winner, guest.playerId);
+  await assert.rejects(getRoom(db, host.code, host.token), error => error.status === 401);
+  assert.equal((await listRooms(db)).rooms[0].hostName, 'guest');
+  await actOnRoom(db, host.code, { action: 'leave', token: guest.token });
+  assert.equal((await listRooms(db)).rooms.length, 0);
+  db.sqlite.close();
+}));
+
+test('stale waiting slots are reclaimed before a new join', async () => withClock(async advance => {
+  const db = database();
+  const host = await createRoom(db, { name: 'old host' });
+  await Promise.all(['a', 'b', 'c'].map(name => actOnRoom(db, host.code, { action: 'join', name })));
+  assert.equal((await listRooms(db)).rooms.length, 0);
+  advance(61_000);
+  assert.equal((await listRooms(db)).rooms.length, 0);
+  const join = await actOnRoom(db, host.code, { action: 'join', name: 'new host' });
+  assert.equal(join.room.hostId, join.playerId);
+  assert.equal(join.room.players.length, 1);
+  assert.equal(join.room.players[0].ready, true);
   db.sqlite.close();
 }));

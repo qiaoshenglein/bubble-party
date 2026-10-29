@@ -1,6 +1,15 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M22 19.2727C22 20.779 20.779 22 19.2727 22H14.7273C13.221 22 12 20.779 12 19.2727V12H19.2727C20.779 12 22 13.221 22 14.7273V19.2727Z" fill="#68C4FF"/>
-<path d="M20 2C21.1046 2 22 2.89543 22 4V7C22 8.10457 21.1046 9 20 9H17C15.8954 9 15 8.10457 15 7V4C15 2.89543 15.8954 2 17 2H20Z" fill="#0C79D8"/>
-<path d="M7 15C8.10457 15 9 15.8954 9 17V20C9 21.1046 8.10457 22 7 22H4C2.89543 22 2 21.1046 2 20V17C2 15.8954 2.89543 15 4 15H7Z" fill="#0C79D8"/>
-<path d="M12 12H4.72727C3.22104 12 2 10.779 2 9.27273V4.72727C2 3.22104 3.22104 2 4.72727 2H9.27273C10.779 2 12 3.22104 12 4.72727V12Z" fill="#2E9EFF"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <radialGradient id="bubble" cx=".32" cy=".2" r=".85"><stop stop-color="#D6FAFF"/><stop offset=".43" stop-color="#79DBFA"/><stop offset="1" stop-color="#38A3E9"/></radialGradient>
+    <linearGradient id="shine" x1="16" y1="8" x2="40" y2="38" gradientUnits="userSpaceOnUse"><stop stop-color="white"/><stop offset="1" stop-color="white" stop-opacity=".25"/></linearGradient>
+  </defs>
+  <ellipse cx="32" cy="58" rx="21" ry="4" fill="#367DA5" opacity=".13"/>
+  <circle cx="31" cy="31" r="26" fill="url(#bubble)" stroke="#409CD0" stroke-width="2"/>
+  <path d="M12 24C14 15 20 11 28 11" stroke="url(#shine)" stroke-width="5" stroke-linecap="round"/>
+  <path d="M49 37C48 45 42 50 35 51" stroke="#BCF4FF" stroke-width="2.8" stroke-linecap="round"/>
+  <ellipse cx="22.5" cy="31.5" rx="3.2" ry="4.6" fill="#345C80"/><ellipse cx="39.5" cy="31.5" rx="3.2" ry="4.6" fill="#345C80"/>
+  <circle cx="21.6" cy="30" r="1.1" fill="white"/><circle cx="38.6" cy="30" r="1.1" fill="white"/>
+  <ellipse cx="16.5" cy="38" rx="4" ry="2" fill="#FFCCD7" opacity=".8"/><ellipse cx="45.5" cy="38" rx="4" ry="2" fill="#FFCCD7" opacity=".8"/>
+  <path d="M27 39C29 42.5 33 42.5 35 39" stroke="#345C80" stroke-width="2.3" stroke-linecap="round"/>
+  <circle cx="55" cy="10" r="6.5" fill="#BCF1FF" stroke="#67BAE6" stroke-width="1.5"/><path d="M52 8C52.4 6.8 53.2 6.1 54.5 6" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
 </svg>
